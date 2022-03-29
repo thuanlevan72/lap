@@ -1,0 +1,38 @@
+<p>{{potsForm.value | json}}</p>
+<div class="container">
+    <form [formGroup]="potsForm" (ngSubmit)="onSubmit(potsForm.value)">
+        <div class="form-group">
+            <label for="">title</label>
+            <input type="text" name="title" id="" class="form-control" placeholder="" aria-describedby="helpId" formControlName="title">
+            <small id="helpId" class="text-muted" *ngIf="potsForm.get('title')?.dirty">
+                <p *ngIf="potsForm.get('title')?.errors?.['required']">
+                    tiêu đề bắt buộc nhập
+                </p>
+            </small>
+        </div>
+        <div class="form-group">
+            <label for=""></label>
+            <textarea class="form-control" name="" id="" rows="3" formControlName="content"></textarea>
+            <label for="" class="text-muted" *ngIf="potsForm.get('content')?.dirty">
+                <p *ngIf="potsForm.get('content')?.errors?.['required']">
+                    noi dung bắt buộc nhập
+                </p>
+                <p *ngIf="potsForm.get('content')?.errors?.['minlength']">
+                    nooij dung toi thieu 6 ky tu
+                </p>
+            </label>
+        </div>
+        <br>
+        <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="status" id="" value="0" formControlName="status" selected="selected"> Display 0
+          </label>
+            <br>
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="status" id="" value="1" formControlName="status"> Display 1
+          </label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

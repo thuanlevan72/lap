@@ -1,0 +1,26 @@
+<p>post works!</p>
+<a name="" id="" class="btn btn-primary" routerLink="form" role="button">thêm post
+
+</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>content</th>
+            <th>status</th>
+            <th>xóa</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of posts">
+            <td scope="row">{{post.id}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.content}}</td>
+            <td *ngIf="post.status == 0">active</td>
+            <td *ngIf="post.status == 1">look</td>
+            <td><a name="" id="" class="btn btn-danger" (click)="dle(post.id)" role="button">xóa</a></td>
+        </tr>
+
+    </tbody>
+</table>
